@@ -5,7 +5,7 @@
 
 #ifdef __GNUC__
 #  define strcmpi(s1, s2) strcasecmp(s1, s2)
-#endif __GNUC__
+#endif /* __GNUC__ */
 
 /* DOS ASCII -> SunOS ASCII */
 
@@ -123,4 +123,4 @@ static int D2UIsoTable[256] =
   '\xb0', '\xb7', '\x94', '\x93', '\x92', '\xb2', '\x91', '\x90',
 };
 
-#endif  __DOS2UNIX_H
+#endif /* __DOS2UNIX_H */

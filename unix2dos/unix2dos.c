@@ -105,7 +105,7 @@ void PrintVersion(void)
   fprintf(stderr, "VER_AUTHOR: %s\n", VER_AUTHOR);
   fprintf(stderr, "VER_DATE: %s\n", VER_DATE);
   fprintf(stderr, "VER_REVISION: %s\n", VER_REVISION);
-#endif DEBUG
+#endif /* DEBUG */
 }
 
 
@@ -181,7 +181,7 @@ int ConvertUnixToDos(FILE* ipInF, FILE* ipOutF, CFlag *ipFlag)
 #ifdef DEBUG
             fprintf(stderr, "unix2dos: program error, invalid conversion mode %d\n",ipFlag->ConvMode);
             exit(1);
-#endif DEBUG
+#endif /* DEBUG */
   }
   return RetVal;
 }
@@ -210,7 +210,7 @@ int ConvertUnixToDosNewFile(char *ipInFN, char *ipOutFN, CFlag *ipFlag)
 
 #ifdef DEBUG
   fprintf(stderr, "unix2dos: using %s as temp file\n", TempPath);
-#endif DEBUG
+#endif /* DEBUG */
 
   /* can open in file? */
   if ((!RetVal) && ((InF=OpenInFile(ipInFN)) == NULL))
@@ -289,7 +289,7 @@ int ConvertUnixToDosOldFile(char* ipInFN, CFlag *ipFlag)
 
 #ifdef DEBUG
   fprintf(stderr, "unix2dos: using %s as temp file\n", TempPath);
-#endif DEBUG    
+#endif /* DEBUG */
 
   /* can open in file? */
   if ((!RetVal) && ((InF=OpenInFile(ipInFN)) == NULL))
