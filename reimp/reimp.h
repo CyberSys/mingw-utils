@@ -1,14 +1,6 @@
 #include <stddef.h>
+#include <stdint.h>
 #include <stdio.h>
-
-/* we need integers of specific sizes */
-#ifndef uint32
-#define uint32 unsigned long
-#endif
-
-#ifndef uint16
-#define uint16 unsigned short
-#endif
 
 /* defines for archive */
 #ifndef ARMAG
@@ -41,13 +33,13 @@ extern char *long_names;
 
 /* import header */
 struct imp_hdr {
-  uint16 sig1;
-  uint16 sig2;
-  uint16 version;
-  uint32 time;
-  uint32 size;
-  uint16 ord_or_hint;
-  uint16 type;
+  uint16_t sig1;
+  uint16_t sig2;
+  uint16_t version;
+  uint32_t time;
+  uint32_t size;
+  uint16_t ord_or_hint;
+  uint16_t type;
 };
 
 /* sig1 */
@@ -67,7 +59,7 @@ struct imp_hdr {
 #define IMPORT_NAME_UNDECORATE	IMPNT(3)
 #define TEST_IMPNT(t,v) (((t) & IMPNT(7)) == (v))
 
-uint32 swap_endian (uint32);
+uint32_t swap_endian (uint32_t);
 
 #ifdef BIG_ENDIAN
 #define btonat(u) u
@@ -87,7 +79,7 @@ extern char *program_name;
 
 #if !defined(_WIN32) && !defined(__MSDOS__)
 #define spawnvp do_spawn
-int spawnvp (int, char *, char **);
+int spawnvp (int, char *, const char * const *);
 #define P_WAIT 0
 #define P_NOWAIT 1
 #endif

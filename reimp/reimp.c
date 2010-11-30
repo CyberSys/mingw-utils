@@ -80,20 +80,20 @@ is_import (unsigned char *name)
   return 1;
 }
 
-static int do_import (char *, uint32, FILE *);
+static int do_import (char *, uint32_t, FILE *);
 
 /* read second linker member and process all archive members */
 static int
 read_link_member (struct ar_hdr *hdr, FILE *f)
 {
-  uint32 n_memb;
-  uint32 n_syms;
-  uint32 *ofs;
-  uint16 *idx;
+  uint32_t n_memb;
+  uint32_t n_syms;
+  uint32_t *ofs;
+  uint16_t *idx;
   char *buf;
   char *sym;
-  uint32 n;
-  uint16 i;
+  uint32_t n;
+  uint16_t i;
 
   /* FIXME: are offsets and sizes in host endianness?  Currently we
      assume so. */
@@ -305,7 +305,7 @@ write_def (char *dll, char *def, int ord, char *flags)
 }
 
 void
-extract_member (char *name, uint32 size, FILE *f)
+extract_member (char *name, uint32_t size, FILE *f)
 {
   static int non_imports = 0;
   char buf[2048];
@@ -379,7 +379,7 @@ extract_member (char *name, uint32 size, FILE *f)
 
 /* process an import */
 static int
-do_import (char *name, uint32 offset, FILE *f)
+do_import (char *name, uint32_t offset, FILE *f)
 {
   struct ar_hdr ar_hdr;
   struct imp_hdr imp_hdr;

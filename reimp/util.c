@@ -1,6 +1,7 @@
 #include <stdarg.h>
 #include <stdlib.h>
 #include <string.h>
+#include <unistd.h>
 
 #include <reimp.h>
 
@@ -9,14 +10,14 @@ char *program_name;
 #define swapb(a,b) a ^= b; b ^= a; a ^= b
 
 /* swap little <=> big endian */
-uint32
-swap_endian (uint32 u)
+uint32_t
+swap_endian (uint32_t u)
 {
 #define swapb(a,b) a ^= b; b ^= a; a ^= b
   unsigned char *p = (unsigned char *) &u;
   swapb (p[0], p[3]);
   swapb (p[1], p[2]);
-  return *((uint32 *) p);
+  return *((uint32_t *) p);
 }
 
 
@@ -79,7 +80,7 @@ begins (char *s, char *with)
 #endif
 
 int
-spawnvp (int mode, char *path, char **argv)
+spawnvp (int mode, char *path, const char * const *argv)
 {
   int pid;
   int status;
@@ -89,7 +90,7 @@ spawnvp (int mode, char *path, char **argv)
     case -1:
       return -1;
     case 0:
-      execvp (path, argv);
+      execvp (path, (char * const *) argv);
 
       _exit (EXIT_FAILURE);
       break;

@@ -1,3 +1,14 @@
+2010-11-30  Volker Grabsch  <vog@users.sourceforge.net>
+
+	Portability fix for the reimp tool of mingw-utils
+	* reimp/reimp.c (do_import, read_link_member, extract_member):
+	Use standard [u]intNN_t types throughout.
+	* reimp/reimp.h: Include stdint.h.  Don't define custom [u]intNN
+	types. Use standard [u]intNN_t types throughout. Correct signature
+	for spawnvp on non-win32.
+	* reimp/util.c: Include unistd.h.  Use standard [u]intNN_t types
+	throughout. Correct signature for spawnvp.
+
 2009-09-15  Charles Wilson  <cwilso11@users.sourceforge.net>
 
 	Release 0.4
