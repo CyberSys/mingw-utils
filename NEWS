@@ -1,3 +1,10 @@
+0.5
+============================
+* Improved portability for reimp tool to other platforms as well as
+  64bit windows.  Thanks to Volker Grabsch for the patch.
+* Fix reimp issue with some unusual MS libraries. Thanks to Glenno
+  Burkhardt for the report.
+
 0.4
 ============================
 * Removed drmingw. Get updated binaries and source from

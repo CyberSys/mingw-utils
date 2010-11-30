@@ -43,6 +43,8 @@ AC_CHECK_HEADER(utime.h,
 # Checks for library functions.
 AC_CHECK_FUNCS(mkstemp mktemp, break)
 AC_CHECK_FUNCS(utime)
+CFLAGS_copy=${CFLAGS}
+AC_SUBST([CFLAGS_copy])
 
 AC_CONFIG_FILES([
 Makefile
